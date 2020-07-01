@@ -66,7 +66,7 @@
             </div>
             <div class="banner">
                 <a href="/#/product/30">
-                    <img v-alzy="'/imgs/banner-1.png'" alt="">
+                    <img v-lazy="'/imgs/banner-1.png'" alt="">
                 </a>
             </div>
         </div>
