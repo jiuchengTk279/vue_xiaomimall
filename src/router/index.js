@@ -1,9 +1,9 @@
 import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Router from 'vue-router'
 
-Vue.use(VueRouter)
+Vue.use(Router)
 
-export default new VueRouter({
+export default new Router({
   routes: [
     {
       path: '/',
@@ -27,6 +27,11 @@ export default new VueRouter({
           component: () => import('../pages/detail.vue')
         },
       ]
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: () => import('../pages/login.vue')
     },
     {
       path: '/cart',

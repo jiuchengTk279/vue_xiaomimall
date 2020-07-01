@@ -6,6 +6,7 @@ module.exports = {
             '/api': {
                 target: 'http://mall-pre.springboot.cn',
                 changeOrigin: true,
+                // 转发，去除 /api
                 pathRewrite: {
                     '/api': ''
                 }

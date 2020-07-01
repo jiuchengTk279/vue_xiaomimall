@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import NavHeader from '../components/NavHeader.vue'
-import NavFooter from '../components/NavFooter.vue'
+import NavHeader from '../components/NavHeader'
+import NavFooter from '../components/NavFooter'
 
 export default {
-    name: 'home',
+    name: 'nav-home',
     components: {
         NavHeader,
         NavFooter

@@ -2,6 +2,8 @@ import Vue from 'vue'
 import router from './router'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueLazyLoad from 'vue-lazyload'
+import VueCookie from 'vue-cookie'
 import App from './App.vue'
 // import env from '../env.js'
 
@@ -14,7 +16,7 @@ if (mock) {
 
 // 根据前端的跨域方式做调整  /a/b : /api/a/b => /a/b
 // easy-mock 地址
-axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5dc7afee2b69d9223b633cbb/mimall';
+// axios.defaults.baseURL = 'https://www.easy-mock.com/mock/5dc7afee2b69d9223b633cbb/mimall';
 // 真实地址
 axios.defaults.baseURL = '/api';
 // axios.defaults.baseURL = 'http://test-www.imooc.com/api';
@@ -32,10 +34,15 @@ axios.interceptors.response.use(function(response){
     window.location.href = '/#/login'
   } else {
     alert(res.msg)
+    return Promise.reject(res);
   }
 })
 
 Vue.use(VueAxios, axios);
+Vue.use(VueLazyLoad, {
+  loading: '/imgs/loading-svg/loading-bars.svg'
+})
+Vue.use(VueCookie);
 Vue.config.productionTip = false
 
 new Vue({
