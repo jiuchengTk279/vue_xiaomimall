@@ -9,10 +9,12 @@ export default {
   name: 'app',
   data () {
     return {
-      res: {}
+      // res: {}
     }
   },
   mounted () {
+    this.getUser();
+    this.getCartCount();
     // // 本地加载请求静态 json 文件的格式
     // // this.axios.get('/mock/user/login.json').then((res) => {
     // //   this.res = res
@@ -27,6 +29,20 @@ export default {
     // this.axios.get('/user/login').then((res) => {
     //   this.res = res
     // })
+  },
+  methods: {
+    // 获取用户信息
+    getUser () {
+      this.axios.get('/user').then(() => {
+        // to-do 保存到 vuex 里面
+      })
+    },
+    // 拉取购物车中的数量
+    getCartCount() {
+      this.axios.get('/carts/products/sum').then(() => {
+        // to-do 保存到 vuex 里面
+      })
+    }
   }
 }
 </script>
