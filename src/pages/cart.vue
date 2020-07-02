@@ -59,6 +59,10 @@
 import OrderHeader from '../components/OrderHeader.vue'
 import NavFooter from '../components/NavFooter.vue'
 import ServiceBar from '../components/ServiceBar.vue'
+import { Message } from 'element-ui'
+import Vue from 'vue'
+
+Vue.use(Message)
 
 export default {
     name: 'cart',
@@ -94,13 +98,13 @@ export default {
                 selected = item.productSelected;
             if (type == '-') {
                 if (quantity == 1) {
-                    alert('商品至少保留一件');
+                    Message.info('商品至少保留一件');
                     return;
                 }
                 --quantity;
             }else if (type == '+') {
                 if (quantity >= item.productSelected) {
-                    alert('购买数量不能超过库存数量');
+                    Message.info('购买数量不能超过库存数量');
                     return;
                 }
                 ++quantity;
@@ -141,7 +145,7 @@ export default {
         order(){
             let isCheck = this.list.every(item => !item.productSelected);
             if (isCheck) {
-                alert('请选择一件商品');
+                Message.info('请选择一件商品');
             } else {
                 this.$router.push('/order/confirm');
             }
